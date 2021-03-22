@@ -138,6 +138,7 @@ def train_detector(model,
             cfg.data.val.pipeline = replace_ImageToTensor(
                 cfg.data.val.pipeline)
         val_dataset = build_dataset(cfg.data.val, dict(test_mode=True))
+        print('\nBuild Validation Dataset of size:'+str(len(val_dataset)))
         val_dataloader = build_dataloader(
             val_dataset,
             samples_per_gpu=val_samples_per_gpu,
